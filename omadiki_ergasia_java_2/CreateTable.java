@@ -1,5 +1,5 @@
 package omadiki_ergasia_java_2;
-import java.util.*;
+import java.util.ArrayList;
 
 public class CreateTable {
 
@@ -15,15 +15,31 @@ public class CreateTable {
 		this.values.add(columnNames);
 	}
 
+	//setters
+	public void setTableName(String name) {
+		this.tableName = name;
+	}
+
+	public void setColumnNames(ArrayList<String>  names) {
+		this.columnNames = names;
+	}
+
+	//getters
+	public String getName() {
+				return ("  " + this.tableName + "\n");
+	}
+
+	public ArrayList<String> getColumnNames() {
+			return (this.columnNames);
+	}
+
+
 	//Adds a row of values to the table
 	public void addRow(ArrayList<String> row) {
 			this.values.add(row);
 	}
 
-	//returns the table's name
-		public String getName() {
-			return ("  " + this.tableName + "\n");
-	}
+
 
 	//Prints the contents of the table invluding the names of its columns
 	public void printTable() {
@@ -34,8 +50,6 @@ public class CreateTable {
 		}
 		System.out.println();
 	}
-
-
 
 	public static void main(String args[]) {
 
@@ -62,10 +76,9 @@ public class CreateTable {
 
 		table.addRow(pleiada);
 
-		//System.out.println(table.columnNames);
-
 		System.out.println(table.getName());
-
+		System.out.println(table.getColumnNames());
+		System.out.println();
 		table.printTable();
 
 	}// END OF MAIN
