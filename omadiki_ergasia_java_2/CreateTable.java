@@ -1,4 +1,6 @@
+
 package omadiki_ergasia_java_2;
+
 import java.util.ArrayList;
 
 public class CreateTable {
@@ -73,7 +75,12 @@ public class CreateTable {
 		pleiada.add("6984104787");
 		pleiada.add("philipapakonstantinou@gamil.com");
 		pleiada.add("Somewhere");
-
+                
+                pleiada.add("Giannis");
+                pleiada.add("Kokkosis");
+                pleiada.add("6986663188");
+                pleiada.add("gkokkosis1998@gmail.com");
+                pleiada.add("Zimpampoue");
 		table.addRow(pleiada);
 
 		System.out.println(table.getName());
@@ -83,3 +90,4 @@ public class CreateTable {
 
 	}// END OF MAIN
 }
+
