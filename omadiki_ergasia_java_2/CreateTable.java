@@ -1,6 +1,3 @@
-
-package omadiki_ergasia_java_2;
-
 import java.util.ArrayList;
 
 public class CreateTable {
@@ -27,23 +24,29 @@ public class CreateTable {
 	}
 
 	//getters
-	public String getName() {
+
+	//returns the table's name
+			public String getName() {
 				return ("  " + this.tableName + "\n");
 	}
 
+	//returns the names of the tabe's columns
 	public ArrayList<String> getColumnNames() {
 			return (this.columnNames);
 	}
 
-
-	//Adds a row of values to the table
+	//adds a row of values to the table
 	public void addRow(ArrayList<String> row) {
-			this.values.add(row);
+			ArrayList<String> newRow = new ArrayList<String>();
+
+			for(int i = 0; i < row.size(); i++) {
+				newRow.add(row.get(i));
+			}
+
+			this.values.add(newRow);
 	}
 
-
-
-	//Prints the contents of the table invluding the names of its columns
+	//prints the contents of the table invluding the names of its columns
 	public void printTable() {
 
 		for(int i = 0; i < this.values.size(); i++) {
@@ -52,6 +55,8 @@ public class CreateTable {
 		}
 		System.out.println();
 	}
+
+
 
 	public static void main(String args[]) {
 
@@ -75,19 +80,25 @@ public class CreateTable {
 		pleiada.add("6984104787");
 		pleiada.add("philipapakonstantinou@gamil.com");
 		pleiada.add("Somewhere");
-                
-                pleiada.add("Giannis");
-                pleiada.add("Kokkosis");
-                pleiada.add("6986663188");
-                pleiada.add("gkokkosis1998@gmail.com");
-                pleiada.add("Zimpampoue");
+
 		table.addRow(pleiada);
+
+		pleiada.clear();
+
+		System.out.println();
+
+		table.addRow(pleiada);
+
+		pleiada.clear();
 
 		System.out.println(table.getName());
 		System.out.println(table.getColumnNames());
-		System.out.println();
+
 		table.printTable();
 
+		System.out.println();
+		System.out.println(pleiada);
 	}// END OF MAIN
 }
+
 
