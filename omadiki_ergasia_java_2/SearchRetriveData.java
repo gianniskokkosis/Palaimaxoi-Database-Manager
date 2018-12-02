@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 public class SearchRetriveData {
 
-    public ArrayList<String> searchData(ArrayList<ArrayList<String>> values, String value) {//Vazw ton pinaka san orisma gia na kserei panta h methodos se poion pinaka na psaksei
+    public static ArrayList<String> searchData(ArrayList<ArrayList<String>> values, String value) {//Vazw ton pinaka san orisma gia na kserei panta h methodos se poion pinaka na psaksei
+        ArrayList<String> array = new ArrayList<String>();
         for (int i = 0; i < values.size(); i++) {//prospelasi stis times tou pinaka
-            if (value.equals(values.get(i))) {//sinthiki pou an ali8euei epistrefei olokliri tin pleiada 
-                return values.get(i);//epistrefei olokliri tin pleiada
-            } else {
-                getMessage();//minima oti den vrike antistoixisi ston pinaka me tin timi pou eidigage o xristis
-                return null;
+            for (int j = 0; j < values.get(i).size(); j++) {
+                if (value.equals(values.get(i).get(j))) {//sinthiki pou an ali8euei epistrefei olokliri tin pleiada
+                    array = values.get(i);
+                    //epistrefei olokliri tin pleiada
+                }
             }
         }
-        return null;
+        return array;
     }
 
     public static String getMessage() {
