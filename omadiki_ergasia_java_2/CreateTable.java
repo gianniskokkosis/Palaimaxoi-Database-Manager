@@ -1,16 +1,20 @@
+package omadiki_ergasia_java_2;
+
 import java.util.ArrayList;
 
 public class CreateTable {
 
 	private String tableName;
+	private int numberOfColumns;
 	private ArrayList<String> columnNames;
 	private ArrayList<ArrayList<String>> values;
 
 	//Constructor
-	public CreateTable(String tableName, ArrayList<String>  columnNames, ArrayList<ArrayList<String>> values) {
+	public CreateTable(String tableName, int numberOfColumns, ArrayList<String>  columnNames) {
 		this.tableName = tableName;
+		this.numberOfColumns = numberOfColumns;
 		this.columnNames = columnNames;
-		this.values = values;
+		this.values = new ArrayList<ArrayList<String>>();
 		this.values.add(columnNames);
 	}
 
@@ -19,23 +23,32 @@ public class CreateTable {
 		this.tableName = name;
 	}
 
+	public void setNumberOfColumns(int number) {
+		this.numberOfColumns = number;
+	}
+
 	public void setColumnNames(ArrayList<String>  names) {
 		this.columnNames = names;
 	}
 
 	//getters
-
-	//returns the table's name
-			public String getName() {
-				return ("  " + this.tableName + "\n");
+	public String getName() {
+		return ("  " + this.tableName + "\n");
 	}
 
-	//returns the names of the tabe's columns
+	public int getNumberOfColumns() {
+		return (this.numberOfColumns);
+	}
+
 	public ArrayList<String> getColumnNames() {
-			return (this.columnNames);
+		return (this.columnNames);
 	}
 
-	//adds a row of values to the table
+	public ArrayList<ArrayList<String>> getValues() {
+		return (this.values);
+	}
+
+	//Adds a row of values to the table
 	public void addRow(ArrayList<String> row) {
 			ArrayList<String> newRow = new ArrayList<String>();
 
@@ -46,7 +59,7 @@ public class CreateTable {
 			this.values.add(newRow);
 	}
 
-	//prints the contents of the table invluding the names of its columns
+	//Prints the contents of the table invluding the names of its columns
 	public void printTable() {
 
 		for(int i = 0; i < this.values.size(); i++) {
@@ -56,11 +69,11 @@ public class CreateTable {
 		System.out.println();
 	}
 
-
-
+	//example
 	public static void main(String args[]) {
 
 		String name = "Agenda";
+		int number = 5;
 		ArrayList<String> columns = new ArrayList<String>();
 
 		columns.add("SURNAME");
@@ -71,7 +84,7 @@ public class CreateTable {
 
 		ArrayList<ArrayList<String>> values = new ArrayList<ArrayList<String>>();
 
-		CreateTable table = new CreateTable(name,columns, values);
+		CreateTable table = new CreateTable(name, number ,columns);
 
 		ArrayList<String> pleiada = new ArrayList<String>();
 
@@ -87,6 +100,12 @@ public class CreateTable {
 
 		System.out.println();
 
+		pleiada.add("Xatz");
+		pleiada.add("Vas");
+		pleiada.add("6984104787");
+		pleiada.add("xatz@gamil.com");
+		pleiada.add("Somewhere else");
+
 		table.addRow(pleiada);
 
 		pleiada.clear();
@@ -97,7 +116,6 @@ public class CreateTable {
 		table.printTable();
 
 		System.out.println();
-		System.out.println(pleiada);
 	}// END OF MAIN
 }
 
