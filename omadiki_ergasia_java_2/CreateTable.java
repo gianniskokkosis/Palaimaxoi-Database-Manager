@@ -1,8 +1,11 @@
 package omadiki_ergasia_java_2;
 
+import java.util.Hashtable;
 import java.util.ArrayList;
 
 public class CreateTable {
+
+	private static Hashtable<String, CreateTable> HashedTables = new Hashtable<String, CreateTable>();
 
 	private String tableName;
 	private int numberOfColumns;
@@ -16,6 +19,8 @@ public class CreateTable {
 		this.columnNames = columnNames;
 		this.values = new ArrayList<ArrayList<String>>();
 		this.values.add(columnNames);
+
+		HashedTables.put(this.tableName, this);
 	}
 
 	//setters
@@ -37,7 +42,7 @@ public class CreateTable {
 	}
 
 	public int getNumberOfColumns() {
-		return (this.numberOfColumns);
+		return this.numberOfColumns;
 	}
 
 	public ArrayList<String> getColumnNames() {
@@ -45,18 +50,18 @@ public class CreateTable {
 	}
 
 	public ArrayList<ArrayList<String>> getValues() {
-		return (this.values);
+		return this.values;
 	}
 
 	//Adds a row of values to the table
 	public void addRow(ArrayList<String> row) {
-			ArrayList<String> newRow = new ArrayList<String>();
+		ArrayList<String> newRow = new ArrayList<String>();
 
-			for(int i = 0; i < row.size(); i++) {
-				newRow.add(row.get(i));
-			}
+		for(int i = 0; i < row.size(); i++) {
+			newRow.add(row.get(i));
+		}
 
-			this.values.add(newRow);
+		this.values.add(newRow);
 	}
 
 	//Prints the contents of the table invluding the names of its columns
@@ -116,7 +121,6 @@ public class CreateTable {
 		table.printTable();
 
 		System.out.println();
+		System.out.println(pleiada);
 	}// END OF MAIN
 }
-
-
