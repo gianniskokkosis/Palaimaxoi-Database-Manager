@@ -14,11 +14,12 @@ public class Alternate {
     public static void updateValues(int x,CreateTable table ) {
        
         for(int i = 0; i < table.getValues().size(); i++){
+            for (int j = 0; j < table.getValues().size(); j++){
                 if(i==x){
-                    table.getValues().remove(x);
+                    table.getValues().get(x).remove(x);
                     //table.getValues().add(x, values); edw vgazei error
                 }
-            
+            }
         }
     }
     
