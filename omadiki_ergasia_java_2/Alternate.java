@@ -7,23 +7,26 @@ public class Alternate {
         arl.clear();
     }
 
-    public static void deleteRows(ArrayList<ArrayList<String>> arl, int x) {
+    public static void deleteRows(ArrayList<ArrayList<String>> arl, int x, String values) {
         arl.remove(x);
     }
-
-    public static void updateValues(int x, ArrayList<ArrayList<String>> array, ArrayList<String> values ) {
+    // klisi antikeimenou Create table
+    public static void updateValues(int x,CreateTable table ) {
        
-        for(int i = 0; i < array.size(); i++){
-            for (int j = 0; j < array.get(i).size(); j++) {
+        for(int i = 0; i < table.getValues().size(); i++){
                 if(i==x){
-                    array.remove(x);
-                    array.add(x, values);
+                    table.getValues().remove(x);
+                    //table.getValues().add(x, values); edw vgazei error
                 }
-            }
+            
         }
     }
     
     public static void antimetathesi(){
         
+    }
+    
+    public void a (CreateTable table){
+        table.getValues().size();
     }
 }
