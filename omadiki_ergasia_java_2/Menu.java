@@ -45,24 +45,25 @@ public class Menu {
 	}
 
 	public static void menu_createtable() {
-		CreateTable table=new CreateTable();
 		System.out.println("Please give the name of the Table.");
-		Scanner inp2 = new Scanner(System.in);
-		String name =inp2.next();
-		table.setTableName(name);
-		System.out.println("Please give the numbers of columns.");
-		Scanner inp3 = new Scanner(System.in);
-		 int number_of_columns = inp3.nextInt();
-		table.setNumberOfColumns(number_of_columns);
-		int i=0;
-		ArrayList<String> columns = new ArrayList<String>();	
-		while (i<number_of_columns) {
-					System.out.println("Please give the name of the column.");
-					String name_of_column=inp2.next();
-					columns.add(name_of_column);
-				i++;
-		}
-		table.setColumnNames(columns);
+			String name = input.next();
+
+			System.out.println("Please give the numbers of columns.");
+			int numberOfColumns = input.nextInt();
+
+			ArrayList<String> columns = new ArrayList<String>();
+
+			for (int i = 1; i <= numberOfColumns; i++) {
+
+				System.out.println("Please give the name of the " + i + " column: \n");
+
+				String nameOfColumns = input.next();
+
+				columns.add(nameOfColumns);
+			}
+			System.out.println(columns);
+			System.out.println();
+			CreateTable table = new CreateTable(name, numberOfColumns, columns);
 
 	}
 
