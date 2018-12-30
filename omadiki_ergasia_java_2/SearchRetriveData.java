@@ -4,14 +4,18 @@ import java.util.ArrayList;
 
 public class SearchRetriveData {
 
-    // klisi antikeimenou Create table
-    public ArrayList<String> searchData(CreateTable table, String value) {//Vazw ton pinaka san orisma gia na kserei panta h methodos se poion pinaka na psaksei
+    /*a method that searches
+    the table with a specific value
+    that the user enters and returns
+    an arraylist with the whole
+    set of tuples containing that value */
+    public ArrayList<String> searchData(CreateTable table, String value) {
         ArrayList<String> array = new ArrayList<>();
-        for (int i = 0; i < table.getValues().size(); i++) {//prospelasi stis times tou pinaka
+        for (int i = 0; i < table.getValues().size(); i++) {
             for (int j = 0; j < table.getValues().size(); j++) {
-                if (value.equals(table.getValues().get(i).get(j))) {//sinthiki pou an ali8euei epistrefei olokliri tin pleiada
-                    array = table.getValues().get(i);//epistrefei olokliri tin pleiada 
-                }else{
+                if (value.equals(table.getValues().get(i).get(j))) {
+                    array = table.getValues().get(i);
+                } else {
                     getMessage();
                 }
             }
@@ -19,15 +23,34 @@ public class SearchRetriveData {
         return null;
     }
 
+    /*method that returns a message
+      if there is no such values 
+      in the table (look searchData method)*/
     public static String getMessage() {
         return "No values found";
-    }// methodos pou xrisimopoieitai gia na epistrefei to antisoixo minima ston xristi ean den vrei kamia antisoixisi ston pinaka. Pio polu ti vazw gia na min epistrefei sketo null
-    
-    public ArrayList<String> printSomeValues(int a, int b, CreateTable table){
+    }
+
+    /*method that prints
+    specific rows of the
+    table that the user wants*/
+    public ArrayList<String> printSomeValues(int a, int b, CreateTable table) {
         ArrayList<String> array = new ArrayList<>();
-        for (int i = a; i <= b ; i++){
+        for (int i = a; i <= b; i++) {
             array.addAll(table.getValues().get(i));
         }
         return array;
     }
+
+    /*method that prints
+    the content of the table
+    including the names of its columns*/
+    public void printTable(CreateTable table) {
+
+        for (int i = 0; i < table.getValues().size(); i++) {
+            System.out.print(" " + (i) + " ");
+            System.out.println(table.getValues().get(i));
+        }
+        System.out.println();
+    }
+
 }

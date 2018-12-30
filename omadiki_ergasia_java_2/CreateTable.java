@@ -1,126 +1,101 @@
 package omadiki_ergasia_java_2;
 
-import java.util.Hashtable;
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class CreateTable {
 
-	private static Hashtable<String, CreateTable> HashedTables = new Hashtable<String, CreateTable>();
+    private String tableName;
+    private int numberOfColumns;
+    private ArrayList<String> columnNames;
+    private ArrayList<ArrayList<String>> values;
 
-	private String tableName;
-	private int numberOfColumns;
-	private ArrayList<String> columnNames;
-	private ArrayList<ArrayList<String>> values;
+    //Constructor
+    public CreateTable(String tableName, int numberOfColumns, ArrayList<String> columnNames) {
+        this.tableName = tableName;
+        this.numberOfColumns = numberOfColumns;
+        this.columnNames = columnNames;
+        this.values = new ArrayList<ArrayList<String>>();
+        this.values.add(columnNames);
+    }
 
-	//Constructor
-	public CreateTable(String tableName, int numberOfColumns, ArrayList<String>  columnNames) {
-		this.tableName = tableName;
-		this.numberOfColumns = numberOfColumns;
-		this.columnNames = columnNames;
-		this.values = new ArrayList<ArrayList<String>>();
-		this.values.add(columnNames);
+    //setters
+    public void setTableName(String name) {
+        this.tableName = name;
+    }
 
-		HashedTables.put(this.tableName, this);
-	}
+    public void setNumberOfColumns(int number) {
+        this.numberOfColumns = number;
+    }
 
-	//setters
-	public void setTableName(String name) {
-		this.tableName = name;
-	}
+    public void setColumnNames(ArrayList<String> names) {
+        this.columnNames = names;
+    }
 
-	public void setNumberOfColumns(int number) {
-		this.numberOfColumns = number;
-	}
+    //getters
+    public String getName() {
+        return ("  " + this.tableName + "\n");
+    }
 
-	public void setColumnNames(ArrayList<String>  names) {
-		this.columnNames = names;
-	}
+    public int getNumberOfColumns() {
+        return (this.numberOfColumns);
+    }
 
-	//getters
-	public String getName() {
-		return ("  " + this.tableName + "\n");
-	}
+    public ArrayList<String> getColumnNames() {
+        return (this.columnNames);
+    }
 
-	public int getNumberOfColumns() {
-		return this.numberOfColumns;
-	}
+    public ArrayList<ArrayList<String>> getValues() {
+        return (this.values);
+    }
 
-	public ArrayList<String> getColumnNames() {
-		return (this.columnNames);
-	}
+    //Adds a row of values to the table
+    public void addRow(ArrayList<String> row) {
+        ArrayList<String> newRow = new ArrayList<String>();
 
-	public ArrayList<ArrayList<String>> getValues() {
-		return this.values;
-	}
+        for (int i = 0; i < row.size(); i++) {
+            newRow.add(row.get(i));
+        }
 
-	//Adds a row of values to the table
-	public void addRow(ArrayList<String> row) {
-		ArrayList<String> newRow = new ArrayList<String>();
+        this.values.add(newRow);
+    }
 
-		for(int i = 0; i < row.size(); i++) {
-			newRow.add(row.get(i));
-		}
+    public static void main(String args[]) {
 
-		this.values.add(newRow);
-	}
+        String name = "Agenda";
+        int number = 5;
+        ArrayList<String> columns = new ArrayList<String>();
 
-	//Prints the contents of the table invluding the names of its columns
-	public void printTable() {
+        columns.add("SURNAME");
+        columns.add("FIRSTNAME");
+        columns.add("PHONE");
+        columns.add("EMAIL");
+        columns.add("ADDRESS");
 
-		for(int i = 0; i < this.values.size(); i++) {
-			System.out.print(" " + (i) + " ");
-			System.out.println(this.values.get(i));
-		}
-		System.out.println();
-	}
+        ArrayList<ArrayList<String>> values = new ArrayList<ArrayList<String>>();
+        CreateTable table = new CreateTable(name, number, columns);
+        Scanner input = new Scanner(System.in);
+        ArrayList<String> pleiada = new ArrayList<String>();
 
-	//example
-	public static void main(String args[]) {
+        pleiada.add("Papak");
+        pleiada.add("Philip");
+        pleiada.add("6984104787");
+        pleiada.add("philipapakonstantinou@gamil.com");
+        pleiada.add("Somewhere");
 
-		String name = "Agenda";
-		int number = 5;
-		ArrayList<String> columns = new ArrayList<String>();
+        table.addRow(pleiada);
 
-		columns.add("SURNAME");
-		columns.add("FIRSTNAME");
-		columns.add("PHONE");
-		columns.add("EMAIL");
-		columns.add("ADDRESS");
+        pleiada.clear();
 
-		ArrayList<ArrayList<String>> values = new ArrayList<ArrayList<String>>();
+        System.out.println();
 
-		CreateTable table = new CreateTable(name, number ,columns);
+        pleiada.add("Xatz");
+        pleiada.add("Vas");
+        pleiada.add("6984104787");
+        pleiada.add("xatz@gamil.com");
+        pleiada.add("Somewhere else");
+        table.addRow(pleiada);
+        pleiada.clear();
 
-		ArrayList<String> pleiada = new ArrayList<String>();
-
-		pleiada.add("Papak");
-		pleiada.add("Philip");
-		pleiada.add("6984104787");
-		pleiada.add("philipapakonstantinou@gamil.com");
-		pleiada.add("Somewhere");
-
-		table.addRow(pleiada);
-
-		pleiada.clear();
-
-		System.out.println();
-
-		pleiada.add("Xatz");
-		pleiada.add("Vas");
-		pleiada.add("6984104787");
-		pleiada.add("xatz@gamil.com");
-		pleiada.add("Somewhere else");
-
-		table.addRow(pleiada);
-
-		pleiada.clear();
-
-		System.out.println(table.getName());
-		System.out.println(table.getColumnNames());
-
-		table.printTable();
-
-		System.out.println();
-		System.out.println(pleiada);
-	}// END OF MAIN
+    }// END OF MAIN
 }
