@@ -46,10 +46,10 @@ public class Menu {
 
 	public static void menu_createtable() {
 		System.out.println("Please give the name of the Table.");
-			String name = input.next();
+			String name = inp.next();
 
 			System.out.println("Please give the numbers of columns.");
-			int numberOfColumns = input.nextInt();
+			int numberOfColumns = inp.nextInt();
 
 			ArrayList<String> columns = new ArrayList<String>();
 
@@ -57,7 +57,7 @@ public class Menu {
 
 				System.out.println("Please give the name of the " + i + " column: \n");
 
-				String nameOfColumns = input.next();
+				String nameOfColumns = inp.next();
 
 				columns.add(nameOfColumns);
 			}
