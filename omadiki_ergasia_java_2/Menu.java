@@ -1,55 +1,51 @@
 
 package omadiki_ergasia_java_2;
+
 import java.util.Scanner;
+import java.util.ArrayList;
 
-public class Menu {
+public class Menus {
 
-	public static void startermenu() {
+	private static Scanner input = new Scanner(System.in);
 
-		// TODO Auto-generated method stub
-		// Main menu of Database
-		int a;
-		boolean Continue = true;
-		while (Continue == true) {
-			System.out.println("Welcome to Palaimaxoi Database ");
-			System.out.println("--- MENU ---");
-			System.out.println("1.Create new Table");
-			System.out.println("2.Search/Retrive Data");
-			System.out.println("3.Other Functions");
-			System.out.println("4.Exit");
-			System.out.print("Make a choise:");
-			Scanner inp = new Scanner(System.in);
-			a = inp.nextInt();
-			while (a != 1 && a != 2 && a != 3 && a != 4) {
-				System.out.println("Invalid choice.Please select a choice from 1 to 4 ");
+	public static int starterMenu() {
+
+			// TODO Auto-generated method stub
+			// Main menu of Database
+			int a = 0;
+			boolean Continue = true;
+			while (Continue == true) {
+				System.out.println("Welcome to Palaimaxoi Database ");
 				System.out.println("--- MENU ---");
-				System.out.println("1.Create new Table");
-				System.out.println("2.Search/Retrive Data");
-				System.out.println("3.Other Functions");
-				System.out.println("4.Exit");
+				System.out.println(" 1.Create new Table");
+				System.out.println(" 2.Search/Retrive Data");
+				System.out.println(" 3.Other Functions");
+				System.out.println(" 4.Exit");
 				System.out.print("Make a choise:");
-				a = inp.nextInt();
+
+				a = input.nextInt();
+				while (a != 1 && a != 2 && a != 3 && a != 4) {
+					System.out.println("Invalid choice.Please select a choice from 1 to 4 ");
+					System.out.println(" --- MENU ---");
+					System.out.println(" 1.Create new Table");
+					System.out.println(" 2.Search/Retrive Data");
+					System.out.println(" 3.Other Functions");
+					System.out.println(" 4.Exit");
+					System.out.println("Make a choise:");
+					a = input.nextInt();
+				}
+				Continue = false;
 			}
+			return a;
 		}
-		switch (a) {
 
-		case 1:
-			 menu_createtable();
-		case 2:
-			 menu_Search_Retrive_Data();
-		case 3:
-			 menu_Other_Functions();
-		case 4:
-			Continue = false;
-		}
-	}
+		public static CreateTable menuCreateTable() {
 
-	public static void menu_createtable() {
-		System.out.println("Please give the name of the Table.");
-			String name = inp.next();
+			System.out.println("Please give the name of the Table.");
+			String name = input.next();
 
 			System.out.println("Please give the numbers of columns.");
-			int numberOfColumns = inp.nextInt();
+			int numberOfColumns = input.nextInt();
 
 			ArrayList<String> columns = new ArrayList<String>();
 
@@ -57,7 +53,7 @@ public class Menu {
 
 				System.out.println("Please give the name of the " + i + " column: \n");
 
-				String nameOfColumns = inp.next();
+				String nameOfColumns = input.next();
 
 				columns.add(nameOfColumns);
 			}
@@ -65,8 +61,8 @@ public class Menu {
 			System.out.println();
 			CreateTable table = new CreateTable(name, numberOfColumns, columns);
 
-	}
-
+			return table;
+		}
 	public static void menu_Search_Retrive_Data() {
 
 	}
