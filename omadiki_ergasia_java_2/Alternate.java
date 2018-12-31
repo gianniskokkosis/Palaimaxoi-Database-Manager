@@ -18,14 +18,14 @@ public class Alternate {
 
     public static void deleteRows(CreateTable table, int from, int to) {
         if( from == to) {
-			table.getValues().get(from).clear();
+			table.getValues().remove(from);
 		} else if ( from > to) {
 			System.out.println("The first index must be either equal or lesser than the second\n");
 		} else if ( to > table.getValues().size()) {
 			System.out.println("The specified table does not contain so many rows \n");
     	} else {
-			for(int i = from; i <= to; i++) {
-				table.getValues().get(i).clear();
+			for(int i = from; i < to; i++) {
+				table.getValues().remove(i);
 			}
 		}
     }
@@ -39,7 +39,7 @@ public class Alternate {
 		}
 		return emptyRows;
     }
-
+	/*
 	public static void synchronize(CreateTable table) {
 
 		ArrayList<String> temp = new ArrayList<String>();
@@ -54,5 +54,5 @@ public class Alternate {
 				table.getValues().get(i+1).clear();
 			}
 		}
-	}
+	} */
 }
