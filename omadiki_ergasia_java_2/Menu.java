@@ -64,6 +64,11 @@ public class Menus {
 			return table;
 		}
 	public static void menu_Search_Retrive_Data() {
+		//System.out.println("Please give the name of the Table you want to search.");
+		//String table = input.next();
+		System.out.println("Please give the value you want to search.");
+		String value = input.next();
+		//SearchRetriveData.searchData(table,value);
 
 	}
 
