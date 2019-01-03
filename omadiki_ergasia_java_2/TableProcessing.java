@@ -2,7 +2,7 @@ package omadiki_ergasia_java_2;
 
 import java.util.ArrayList;
 
-public class Alternate {
+public class TableProcessing {
 
 	public static void updateValues(CreateTable table, int x, ArrayList<String> values ) {
     	table.getValues().remove(x);
