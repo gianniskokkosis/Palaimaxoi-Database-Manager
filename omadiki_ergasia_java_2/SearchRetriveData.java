@@ -9,28 +9,27 @@ public class SearchRetriveData {
     that the user enters and returns
     an arraylist with the whole
     set of tuples containing that value */
-    public ArrayList<String> searchData(CreateTable table, String value) {
-        ArrayList<String> array = new ArrayList<>();
+    public static void searchData(CreateTable table, String value) {
+
         boolean find = false;
         for (int i = 0; i < table.getValues().size(); i++) {
             for (int j = 0; j < table.getValues().size(); j++) {
                 if (value.equals(table.getValues().get(i).get(j))) {
-                    array = table.getValues().get(i);
                     find = true;
-                    break;
+                    System.out.println(table.getName());
+                    System.out.println(table.getColumnNames());
+                    System.out.println(table.getValues().get(i));
                 }
             }
         }
-        if (find == true){
-            return array;
-        }else{
-            getMessage();
-            return null;
+
+        if (find == false) {
+            System.out.println("No values found mathcing with your input!");
         }
     }
 
     /*method that returns a message
-      if there is no such values 
+      if there is no such values
       in the table (look searchData method)*/
     public static String getMessage() {
         return "No values found";
@@ -39,19 +38,23 @@ public class SearchRetriveData {
     /*method that prints
     specific rows of the
     table that the user wants*/
-    public static ArrayList<String> printSomeValues(int a, int b, CreateTable table) {
-        ArrayList<String> array = new ArrayList<>();
-        for (int i = a; i <= b; i++) {
-            array.addAll(table.getValues().get(i));
+    public static void printRows(CreateTable table, int from, int to) {
+        System.out.println(table.getName());
+        System.out.println(table.getColumnNames());
+        System.out.print(" " + 0 + " ");
+        System.out.println(table.getValues().get(0));
+        for (int i = from; i <= to; i++) {
+            System.out.print(" " + (i) + " ");
+            System.out.println(table.getValues().get(i));
         }
-        return array;
     }
 
     /*method that prints
     the content of the table
     including the names of its columns*/
     public static void printTable(CreateTable table) {
-
+        System.out.println(table.getName());
+        System.out.println(table.getColumnNames());
         for (int i = 0; i < table.getValues().size(); i++) {
             System.out.print(" " + (i) + " ");
             System.out.println(table.getValues().get(i));
