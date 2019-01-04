@@ -18,12 +18,9 @@ public class SearchRetriveData {
                     array = table.getValues().get(i);
                     find = true;
                     break;
-                } else {
-                    continue;
                 }
             }
         }
-        
         if (find == true){
             return array;
         }else{
