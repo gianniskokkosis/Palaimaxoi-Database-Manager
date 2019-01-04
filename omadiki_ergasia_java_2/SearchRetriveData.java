@@ -17,8 +17,9 @@ public class SearchRetriveData {
                 if (value.equals(table.getValues().get(i).get(j))) {
                     array = table.getValues().get(i);
                     find = true;
+                    break;
                 } else {
-                    getMessage();
+                    continue;
                 }
             }
         }
