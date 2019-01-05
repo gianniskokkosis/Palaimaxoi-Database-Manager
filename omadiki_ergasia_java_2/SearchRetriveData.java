@@ -2,7 +2,7 @@ package omadiki_ergasia_java_2;
 
 import java.util.ArrayList;
 
-public class SearchRetriveData {
+public class SearchRetrieveData {
 
     /*a method that searches
     the table with a specific value
@@ -26,13 +26,6 @@ public class SearchRetriveData {
         if (find == false) {
             System.out.println("No values found mathcing with your input!");
         }
-    }
-
-    /*method that returns a message
-      if there is no such values
-      in the table (look searchData method)*/
-    public static String getMessage() {
-        return "No values found";
     }
 
     /*method that prints
