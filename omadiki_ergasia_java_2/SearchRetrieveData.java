@@ -12,11 +12,11 @@ public class SearchRetrieveData {
     public static void searchData(CreateTable table, String value) {
 		boolean find = false;
 
-        System.out.println("Table: " + "'" + table.getName() + "'");
-        System.out.println(table.getColumnNames());
+        System.out.println("\nTable: " + table.getName());
+        System.out.println("Columns: " + table.getColumnNames());
 
         for (int i = 0; i < table.getValues().size(); i++) {
-            for (int j = 0; j < table.getValues().size(); j++) {
+            for (int j = 0; j < table.getValues().get(i).size(); j++) {
                 if (value.equals(table.getValues().get(i).get(j))) {
                     find = true;
                     System.out.println(" " + i + " " + table.getValues().get(i));
@@ -33,8 +33,6 @@ public class SearchRetrieveData {
     specific rows of the
     table that the user wants*/
     public static void printRows(CreateTable table, int from, int to) {
-        System.out.println(table.getName());
-        System.out.println(table.getColumnNames());
         for (int i = from; i <= to; i++) {
             System.out.println(" " + i + " " + table.getValues().get(i));
         }
@@ -44,10 +42,10 @@ public class SearchRetrieveData {
     the content of the table
     including the names of its columns*/
     public static void printTable(CreateTable table) {
-        System.out.println("Table: " + "'" + table.getName() + "'");
-        System.out.println(table.getColumnNames());
+        System.out.println("Table: " + table.getName());
+        System.out.println("Columns: " + table.getColumnNames());
 
-        for (int i = 0; i < table.getValues().size(); i++) {
+        for (int i = 1; i < table.getValues().size(); i++) {
             System.out.println(" " + i + " " + table.getValues().get(i));
         }
         System.out.println();
