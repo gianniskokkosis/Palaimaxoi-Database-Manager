@@ -135,8 +135,8 @@ public class Menus {
 		int choice = 0;
 		String input1;
 		String input2;
-		int int1 = 0;
-		int int2 = 0;
+		int int1 = -1;
+		int int2 = -1;
 
 		while(choice <= 0) {
 			System.out.println();
@@ -160,7 +160,7 @@ public class Menus {
 				SearchRetrieveData.printTable(table);
 				break;
 			case 2:
-				while ( (int1 <= 0) || (int2 <= 0) || (int1 > int2)) {
+				while ( (int1 < 0) || (int2 < 0) || (int1 > int2)) {
 
 					System.out.println("\nPlease type two integers to define a range(e.g. 2 and 4). The rows of the table within the defined" +
 					 	" range will be printed on the screen.\nATTENTION!!! The first integer should be lesser or equal to the second.\n");
@@ -177,6 +177,8 @@ public class Menus {
 					}
 					if( (int1 >= table.getValues().size()) || (int2 >= table.getValues().size()) ) {
 						System.out.println("The table does not contain so many rows. It only contains: " + (table.getValues().size()-1));
+						int1 = -1;
+						int2 = -1;
 					}
 				}
 
