@@ -1,14 +1,25 @@
 package omadiki_ergasia_java_2;
+/**
+ * SearchRetrieveData provides all the  methods
+ * necessary for the user and retrieve the data they have
+ * inserted or to execute a (primitive) search.
+ *
+ * @authors: Palaimaxoi
+ */
 
 import java.util.ArrayList;
 
 public class SearchRetrieveData {
-
-    /*a method that searches
-    the table with a specific value
-    that the user enters and returns
-    an arraylist with the whole
-    set of tuples containing that value */
+	/**
+     * Searches the entire table for a
+     * specific value inputted by the user
+     * and prints all the rows containing
+     * the given value. If the given value is not
+     * found the method prints an appropriate message.
+     *
+     * @param table
+     * @param value
+     */
     public static void searchData(CreateTable table, String value) {
 		boolean find = false;
 
@@ -29,18 +40,29 @@ public class SearchRetrieveData {
         }
     }
 
-    /*method that prints
-    specific rows of the
-    table that the user wants*/
+     /**
+     * Prints a specific range
+     * of rows from the table
+	 * defined by two inputted
+	 * integer values.
+	 *
+	 * @param table
+	 * @param from
+	 * @param to
+     */
     public static void printRows(CreateTable table, int from, int to) {
         for (int i = from; i <= to; i++) {
             System.out.println(" " + i + " " + table.getValues().get(i));
         }
     }
 
-    /*method that prints
-    the content of the table
-    including the names of its columns*/
+    /**
+	* A method that prints the contents
+	* of the whole table including its name and the names of
+	* its columns.
+	*
+	* @param table
+    */
     public static void printTable(CreateTable table) {
         System.out.println("Table: " + table.getName());
         System.out.println("Columns: " + table.getColumnNames());
