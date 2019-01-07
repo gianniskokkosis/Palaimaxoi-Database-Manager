@@ -227,8 +227,9 @@ public class Menus {
 	}
 
 	//The delete menu
-	public static void deleteMenu(CreateTable table) {
+	public static boolean deleteMenu(CreateTable table) {
 		int choice = 0;
+		boolean deletion = false;
 
 		while( choice <= 0) {
 			System.out.println("  --- DELETE MENU ---");
@@ -247,6 +248,8 @@ public class Menus {
 		switch(choice) {
 			case 1:
 				TableProcessing.deleteTable(table);
+				deletion = true;
+				System.out.println("\nThe table has been dropped!\n");
 				break;
 			case 2:
 				int int1,int2;
@@ -286,5 +289,6 @@ public class Menus {
 			case 3:
 				break;
 		}
+		return deletion;
 	}
 }

@@ -52,7 +52,11 @@ public class Main {
 					if (table == null) {
 						System.out.println("\nNo table was found! Please create a table first.\n");
 					} else {
-						Menus.deleteMenu(table);
+						boolean deletion = Menus.deleteMenu(table);
+						if (deletion == true) {
+							table = null;
+						}
+
 					}
 					break;
 				case 7:
