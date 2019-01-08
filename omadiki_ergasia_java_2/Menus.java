@@ -4,10 +4,23 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+ * Menus class provides all the necessary methods in order the user can interact
+ * with the system/program.
+ *
+ * @author jkok1
+ */
+
 public class Menus {
 	private static Scanner input = new Scanner(System.in);
 
-	// Main menu of Database
+	/**
+	 * Prints the main menu of the program and shows the basically functions of
+	 * the program.
+	 *
+	 *
+	 * @return The user's choice.
+	 */
 	public static int starterMenu() {
 		String userInput;
 		int menuInput = 0;
@@ -38,7 +51,13 @@ public class Menus {
 		return menuInput;
 	}
 
-	//Create a Table menu
+    	/**
+    	 * Prints the menu of the choice CreateTable of the starter menu and
+     	* provides all the necessary functions to the user in order to create a
+     	* CreateTable object.
+    	*
+    	* @return the CreateTeble object that the user has created.
+     	*/
 	public static CreateTable menuCreateTable() {
 		String wordEnding;
 		String userInput;
@@ -89,7 +108,14 @@ public class Menus {
 		return table;
 	}
 
-	//The insert data menu
+    	/**
+     	* Prints the menu of insert rows menu and asks the user the number of
+     	* columns he/she wants to add. It also asks the user the name of the
+     	* column's he/she wants to give, how many rows he/she wants to save and
+     	* finally stores the data into the table(CreateTable object).
+     	*
+     	* @param table
+     	*/
 	public static void InsertRowsMenu(CreateTable table) {
 		int numberOfRows = 0;
 		String userInput = "";
@@ -130,7 +156,12 @@ public class Menus {
 		System.out.println("Your data has been successfully inserted.");
 	}
 
-	//The view data menu
+	/**
+     	* Prints the basic data types that the table can save and carries out
+     	* validations of the data entered by the user.
+     	*
+     	* @param table
+     	*/
 	public static void viewMenu(CreateTable table) {
 		int choice = 0;
 		String input1;
@@ -189,14 +220,24 @@ public class Menus {
 		}
 	}
 
-	// The search Menu
+    	/**
+     	* Prints a simple message to the user and asks him/her to give a value that
+     	* he/she wants to search.
+     	*
+     	* @return the value entered by the user.
+     	*/
 	public static String searchMenu() {
 		System.out.println("Please type the value you wish to search for.");
 		String value = input.nextLine();
 		return value;
 	}
 
-	//The update menu
+    	/**
+     	* Prints the menu of update menu and allow the user to update the values of
+     	* the table(CreateTable object).
+     	*
+     	* @param table
+     	*/
 	public static void updateMenu(CreateTable table) {
 		int chosenRow = 0;
 		String userInput;
@@ -226,7 +267,14 @@ public class Menus {
 		System.out.println("Your data has been succesfully updated");
 	}
 
-	//The delete menu
+   	 /**
+     	* Prints the options of delete menu. The user can delete the whole table or
+     	* delete specific rows of the table or go back to the main menu(starter
+     	* menu).
+     	*
+     	* @param table
+     	* @return
+     	*/
 	public static boolean deleteMenu(CreateTable table) {
 		int choice = 0;
 		boolean deletion = false;
