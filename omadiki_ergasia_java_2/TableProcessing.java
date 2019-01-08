@@ -11,10 +11,10 @@ public class TableProcessing {
     /**
      * Update specific values of the table in specific positions
      * of the table.
-     * 
+     *
      * @param table
      * @param index
-     * @param values 
+     * @param values
      */
     public static void updateValues(CreateTable table, int index, ArrayList<String> values) {
         ArrayList<String> update = new ArrayList<String>();
@@ -27,24 +27,25 @@ public class TableProcessing {
     }
 
     /**
-     * Deletes an entire existing table that the user wants.
-     * 
-     * @param table 
+     * Deletes the entire (existing) table that the user wants.
+     *
+     * @param table
      */
     public static void deleteTable(CreateTable table) {
         table.setTableName("");
         table.getColumnNames().clear();
         table.setNumberOfColumns(0);
         table.getValues().clear();
+        table = null;
     }
     /**
      * Deletes a specific range of the table
-     * defined two inputed integers numbers 
+     * defined two inputed integers numbers
      * that the user wants.
-     * 
+     *
      * @param table
      * @param from
-     * @param to 
+     * @param to
      */
     public static void deleteRows(CreateTable table, int from, int to) {
         if (from == to) {
