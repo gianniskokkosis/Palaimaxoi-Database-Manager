@@ -11,14 +11,7 @@ import java.util.ArrayList;
  *
  * @authors Palaimaxoi
  */
-public class Main {
-/**
- * Main is the class that contains the main method for executing the program.
- * Main also invokes other methods of other classes in order for the program to
- * work.
- *
- * @author Palaimaxoi
- */
+
 public class Main {
 
     private static CreateTable table = null;
@@ -85,4 +78,5 @@ public class Main {
             }
         }
         System.out.println("\nThank you for using our database manager. We appreciate your preference!\n");
-    }
+     }
+}
