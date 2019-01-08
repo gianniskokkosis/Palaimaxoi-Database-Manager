@@ -3,6 +3,14 @@ package omadiki_ergasia_java_2;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+ * Main is the class that contains the main method 
+ * for executing the program. Main also invokes 
+ * other methods of other classes 
+ * in order for the program to work.
+ *
+ * @author jkok1
+ */
 public class Main {
 
 	private static CreateTable table = null;
