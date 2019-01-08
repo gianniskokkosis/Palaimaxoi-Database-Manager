@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * other methods of other classes 
  * in order for the program to work.
  *
- * @author jkok1
+ * @authors Palaimaxoi
  */
 public class Main {
 /**
