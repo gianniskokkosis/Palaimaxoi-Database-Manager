@@ -1,7 +1,7 @@
 package omadiki_ergasia_java_2;
 /**
  * SearchRetrieveData provides all the  methods
- * necessary for the user and retrieve the data they have
+ * necessary for the user to retrieve the data they have
  * inserted or to execute a (primitive) search.
  *
  * @authors: Palaimaxoi
@@ -23,7 +23,7 @@ public class SearchRetrieveData {
     public static void searchData(CreateTable table, String value) {
 		boolean find = false;
 
-        System.out.println("\nTable: " + table.getName());
+        System.out.println("\n" + "Table: " + table.getName());
         System.out.println("Columns: " + table.getColumnNames());
 
         for (int i = 0; i < table.getValues().size(); i++) {
@@ -41,15 +41,15 @@ public class SearchRetrieveData {
     }
 
      /**
-     * Prints a specific range
-     * of rows from the table
-	 * defined by two inputted
-	 * integer values.
-	 *
-	 * @param table
-	 * @param from
-	 * @param to
-     */
+      * Prints a specific range
+      * of rows from the table
+	  * defined by two inputted
+	  * integer values.
+	  *
+	  * @param table
+	  * @param from
+	  * @param to
+      */
     public static void printRows(CreateTable table, int from, int to) {
         for (int i = from; i <= to; i++) {
             System.out.println(" " + i + " " + table.getValues().get(i));
@@ -57,12 +57,12 @@ public class SearchRetrieveData {
     }
 
     /**
-	* A method that prints the contents
-	* of the whole table including its name and the names of
-	* its columns.
-	*
-	* @param table
-    */
+	 * Prints the contents
+	 * of the whole table including its
+	 * name and the names of its columns.
+	 *
+	 * @param CreateTable object
+     */
     public static void printTable(CreateTable table) {
         System.out.println("Table: " + table.getName());
         System.out.println("Columns: " + table.getColumnNames());
